@@ -13,7 +13,7 @@ export default function Weather(props) {
      axios.get(apiUrl).then(showWeather);
     return (
       <CircleLoader
-        color="yellow"
+        color="green"
         loading={true}
         size={50}
         aria-label="Loading Spinner"
