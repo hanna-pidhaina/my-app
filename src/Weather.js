@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import { useState, CSSProperties } from "react";
 import CircleLoader from "react-spinners/CircleLoader";
 
 export default function Weather(props) {
