@@ -1,0 +1,20 @@
+.CurrentWeatherSection {
+  padding: 10px 20px 50px;
+  max-width: 700px;
+  margin: auto;
+}
+.weather-icon {
+  padding: 10px;
+  color: white;
+  font-size: 50px;
+}
+.current-day-list {
+  list-style: none;
+  padding: 0;
+  font-style: italic;
+  color: #343837;
+}
+.weather-img {
+  border-radius: 50%;
+  box-shadow: 10px 5px 5px rgba(0, 87, 183, 0.3);
+}

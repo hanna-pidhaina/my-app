@@ -1,0 +1,27 @@
+.forecast-list {
+  list-style: none;
+  text-align: center;
+  padding: 5px 5px;
+  min-width: fit-content;
+}
+.forecast-list:hover {
+  border: none;
+  transform: scale(1.2);
+}
+.forecast-day {
+  color: #343837;
+}
+.day {
+  color: #ffdd00;
+}
+.night {
+  color: #0057b7;
+}
+.day-weather-icon {
+  color: white;
+}
+.footer {
+  color: #343837;
+  text-align: center;
+  padding: 5px;
+}
