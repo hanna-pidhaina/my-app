@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import { useState, CSSProperties } from "react";
+import CircleLoader from "react-spinners/CircleLoader";
 
 export default function Weather(props) {
     function showWeather(response){
@@ -10,6 +12,12 @@ export default function Weather(props) {
      let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=${apiKey}&units=${units}`;
      axios.get(apiUrl).then(showWeather);
     return (
-        <h2>Hello from Weather</h2>
-    )
+      <CircleLoader
+        color="yellow"
+        loading={true}
+        size={50}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
+    );
 }
