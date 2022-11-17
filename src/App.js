@@ -1,21 +1,17 @@
 import './App.css';
+import axios from "axios";
 import Footer from "./Footer";
-import InputSection from "./InputSection";
-import CurrentWeatherSection from "./CurrentWeatherSection";
-import ForecastSection from "./ForecastSection";
+import Weather from './Weather';
 
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <div className="app-container">
-        <InputSection />
-        <CurrentWeatherSection />
-        <ForecastSection />
+        <Weather />
       </div>
       <Footer />
     </div>
   );
 }
 
-export default App;

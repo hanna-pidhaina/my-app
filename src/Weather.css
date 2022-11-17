@@ -1,0 +1,73 @@
+.current-time {
+  color: white;
+}
+.city-input {
+  border-radius: 4px;
+  border-color: white;
+  outline: none;
+  color: #343837;
+}
+.submit-button,
+.current-location-button {
+  border: solid;
+  border-color: white;
+  background: transparent;
+  padding: 0px 20px;
+  border-radius: 4px;
+  color: white;
+}
+.submit-button:hover,
+.current-location-button:hover {
+  background: #ffdd00;
+  color: #0057b7;
+}
+.search-icon:hover {
+  transform: scale(1.2);
+}
+.CurrentWeatherSection {
+  padding: 10px 20px 50px;
+  max-width: 700px;
+  margin: auto;
+}
+.weather-icon {
+  padding: 10px;
+  color: white;
+  font-size: 50px;
+}
+.current-day-list {
+  list-style: none;
+  padding: 0;
+  font-style: italic;
+  color: #343837;
+}
+.weather-img {
+  border-radius: 50%;
+  box-shadow: 10px 5px 5px rgba(0, 87, 183, 0.3);
+}
+.forecast-list {
+  list-style: none;
+  text-align: center;
+  padding: 5px 5px;
+  min-width: fit-content;
+}
+.forecast-list:hover {
+  border: none;
+  transform: scale(1.2);
+}
+.forecast-day {
+  color: #343837;
+}
+.day {
+  color: #ffdd00;
+}
+.night {
+  color: #0057b7;
+}
+.day-weather-icon {
+  color: white;
+}
+.footer {
+  color: #343837;
+  text-align: center;
+  padding: 5px;
+}
