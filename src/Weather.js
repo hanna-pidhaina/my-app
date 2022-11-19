@@ -1,62 +1,60 @@
 import React, { useState } from "react";
 import "./Weather.css";
 import axios from "axios";
+import WeatherInfo from "./WeatherInfo";
 import CurrentDate from "./CurrentDate";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCoffee,
-  faCloud,
-  faMagnifyingGlass,
-} from "@fortawesome/free-solid-svg-icons";
-import cloud from "./cloud.jpg";
-import ForecastDay from "./ForecastDay";
 
-export default function Weather() {
-  let [ready, setReady] = useState(false);
-  let [weatherData, setWeatherData] = useState({});
+
+export default function Weather(props) {
+  let [weatherData, setWeatherData] = useState({ready: false});
+  let [city, setCity] = useState(props.defaultCity);
+
+  function search() {
+    let apiKey = `a3a670287c6f4b3ee8710439a67cc382`;
+    let units = `metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+    axios.get(apiUrl).then(showWeather);
+  }
+  function handleSubmit(event) {
+    event.preventDefault();
+    search(city);
+  }
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
 
   function showWeather(response) {
-    console.log(response.data);
-
     setWeatherData({
+      ready: true,
       temperature: Math.round(response.data.main.temp),
       humidity: response.data.main.humidity,
       city: response.data.name,
       wind: response.data.wind.speed,
       description: response.data.weather[0].main,
       icon: response.data.weather[0].icon,
-      date: new Date (response.data.dt*1000),
+      date: new Date(response.data.dt * 1000),
     });
-    setReady(true);
   }
-  let currentTime = {
-    day: "Thursday",
-    date: 20,
-    month: "October",
-    hours: 12,
-    minutes: 10,
-  };
 
-  if (ready) {
+  if (weatherData.ready) {
     return (
-      <div className="Weather">
+      <div>
         <div className="InputSection row p-4 text-center">
           <div className="col-md-3 pb-2">
             <span className="current-time">
-             <CurrentDate date={weatherData.date} />
+              <CurrentDate date={weatherData.date} />
             </span>
           </div>
-          <div className="col-md-6 pb-2">
-            <form>
+          <div className="SearchForm col-md-6 pb-2">
+            <form onSubmit={handleSubmit}>
               <input
                 type="text"
                 className="city-input mb-1"
                 placeholder="Enter city name"
                 autocomplete="off"
+                onChange={handleCityChange}
               />
-              <button type="submit" className="submit-button">
-                <FontAwesomeIcon icon="magnifyin-glass" />{" "}
-              </button>
+              <button type="submit" className="submit-button"></button>
             </form>
           </div>
           <div className="col-md-3">
@@ -67,55 +65,12 @@ export default function Weather() {
             </button>
           </div>
         </div>
-        <div className="CurrentWeatherSection text-center">
-          <div className="row align-items-center justify-content-around">
-            <div className="col-md-3">
-              <div className="weather-icon">
-                <FontAwesomeIcon icon={faCloud} />
-              </div>
-            </div>
-            <div className="col-md-3">
-              <h3>{weatherData.city}</h3>
-              <h1>
-                <span>{weatherData.temperature} °C</span>
-              </h1>
-              <ul className="current-day-list">
-                <li>{weatherData.description}</li>
-                <li>
-                  <i className="fa-solid fa-wind"></i> {weatherData.wind}m/s
-                </li>
-                <li>
-                  <i className="fa-solid fa-droplet"></i> {weatherData.humidity}
-                  %
-                </li>
-              </ul>
-            </div>
-            <div className="col-md-6">
-              <div>
-                <img
-                  src={cloud}
-                  className="weather-img img-fluid"
-                  alt="cloud"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="ForecastSection row">
-          <ForecastDay />
-          <ForecastDay />
-          <ForecastDay />
-          <ForecastDay />
-          <ForecastDay />
-        </div>
+        <WeatherInfo data={weatherData} />
       </div>
     );
   } else {
-    let apiKey = `a3a670287c6f4b3ee8710439a67cc382`;
-    let units = `metric`;
-    let city = `Kyiv`;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-    axios.get(apiUrl).then(showWeather);
+    search();
+
     return "Loading...";
   }
 }
