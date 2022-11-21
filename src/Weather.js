@@ -3,10 +3,17 @@ import "./Weather.css";
 import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
 import CurrentDate from "./CurrentDate";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faMagnifyingGlass,
+  faLocationDot,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function Weather(props) {
-  let [weatherData, setWeatherData] = useState({ready: false});
+  let searchIcon = <FontAwesomeIcon icon={faMagnifyingGlass} />;
+  let locationIcon = <FontAwesomeIcon icon={faLocationDot} />;
+
+  let [weatherData, setWeatherData] = useState({ ready: false });
   let [city, setCity] = useState(props.defaultCity);
 
   function search() {
@@ -54,12 +61,14 @@ export default function Weather(props) {
                 autocomplete="off"
                 onChange={handleCityChange}
               />
-              <button type="submit" className="submit-button"></button>
+              <button type="submit" className="submit-button">
+                {searchIcon}
+              </button>
             </form>
           </div>
           <div className="col-md-3">
             <button className="current-location-button">
-              My <i className="fa-solid fa-location-dot"></i>
+              My {locationIcon}
               <br />
               weather
             </button>
