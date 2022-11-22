@@ -1,4 +1,5 @@
 import React from "react";
+import WeatherTemp from "./WeatherTemp";
 
 import cloud from "./cloud.jpg";
 import cloudBolt from "./cloudBolt.jpg";
@@ -90,7 +91,7 @@ export default function WeatherInfo(props) {
           <div className="col-md-3">
             <h3>{props.data.city}</h3>
             <h1>
-              <span>{props.data.temperature} °C</span>
+              <WeatherTemp celsius={props.data.temperature} />
             </h1>
             <ul className="current-day-list">
               <li>{props.data.description}</li>
