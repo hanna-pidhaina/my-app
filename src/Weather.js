@@ -6,12 +6,12 @@ import CurrentDate from "./CurrentDate";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMagnifyingGlass,
-  faLocationDot,
+  /*faLocationDot,*/
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function Weather(props) {
   let searchIcon = <FontAwesomeIcon icon={faMagnifyingGlass} />;
-  let locationIcon = <FontAwesomeIcon icon={faLocationDot} />;
+  /*let locationIcon = <FontAwesomeIcon icon={faLocationDot} />; */
 
   let [weatherData, setWeatherData] = useState({ ready: false });
   let [city, setCity] = useState(props.defaultCity);
