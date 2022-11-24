@@ -67,11 +67,11 @@ export default function Weather(props) {
             </form>
           </div>
           <div className="col-md-3">
-            <button className="current-location-button">
+           {/* <button className="current-location-button">
               My {locationIcon}
               <br />
               weather
-            </button>
+    </button> */}
           </div>
         </div>
         <WeatherInfo data={weatherData} />
