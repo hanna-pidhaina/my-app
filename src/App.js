@@ -1,5 +1,4 @@
 import './App.css';
-import axios from "axios";
 import Footer from "./Footer";
 import Weather from './Weather';
 

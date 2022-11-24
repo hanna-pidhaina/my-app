@@ -10,8 +10,8 @@ export default function Footer() {
         rel="noreferrer"
       >
         Open source code
-      </a>
-      by
+      </a>{" "}
+      by{" "}
       <a
         href="https://www.instagram.com/hanna_pidhaina/"
         target="_blank"
