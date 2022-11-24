@@ -4,7 +4,6 @@ import WeatherIcon from "./WeatherIcon";
 import WeatherImg from "./WeatherImg";
 import ForecastDay from "./ForecastDay";
 
-import ReactDOM from "react-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faWind,
@@ -16,6 +15,8 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 
 
 export default function WeatherInfo(props) {
+  let wind = Math.round(props.data.wind);
+  let humidity = props.data.humidity;
   
 
   return (
@@ -33,10 +34,10 @@ export default function WeatherInfo(props) {
             <ul className="current-day-list">
               <li>{props.data.description}</li>
               <li>
-                <FontAwesomeIcon icon={faWind} /> {props.data.wind}m/s
+                <FontAwesomeIcon icon={faWind} /> {wind}m/s
               </li>
               <li>
-                <FontAwesomeIcon icon={faDroplet} /> {props.data.humidity}%
+                <FontAwesomeIcon icon={faDroplet} /> {humidity}%
               </li>
             </ul>
           </div>
