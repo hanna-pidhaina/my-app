@@ -6,12 +6,12 @@ import CurrentDate from "./CurrentDate";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMagnifyingGlass,
-  /*faLocationDot,*/
+  faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function Weather(props) {
   let searchIcon = <FontAwesomeIcon icon={faMagnifyingGlass} />;
-  /*let locationIcon = <FontAwesomeIcon icon={faLocationDot} />; */
+  let locationIcon = <FontAwesomeIcon icon={faLocationDot} />;
 
   let [weatherData, setWeatherData] = useState({ ready: false });
   let [city, setCity] = useState(props.defaultCity);
@@ -26,8 +26,20 @@ export default function Weather(props) {
     event.preventDefault();
     search(city);
   }
+
   function handleCityChange(event) {
     setCity(event.target.value);
+  }
+  function getPosition(position) {
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
+    let apiKey = "a3a670287c6f4b3ee8710439a67cc382";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}&lat=${latitude}&lon=${longitude}&units=metric`;
+    axios.get(apiUrl).then(showWeather);
+  }
+
+  function showMyLocation() {
+    navigator.geolocation.getCurrentPosition(getPosition);
   }
 
   function showWeather(response) {
@@ -67,11 +79,14 @@ export default function Weather(props) {
             </form>
           </div>
           <div className="col-md-3">
-           {/* <button className="current-location-button">
+            <button
+              className="current-location-button"
+              onClick={showMyLocation}
+            >
               My {locationIcon}
               <br />
               weather
-    </button> */}
+            </button>
           </div>
         </div>
         <WeatherInfo data={weatherData} />
