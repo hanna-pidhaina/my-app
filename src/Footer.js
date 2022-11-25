@@ -1,6 +1,6 @@
 import React from "react";
 import "./Footer.css";
-import ukraine from "./ukraine.png";
+import ukraine from "./images/ukraine.png";
 export default function Footer() {
   return (
     <div className="Footer">

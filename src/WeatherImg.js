@@ -1,16 +1,16 @@
 import React from "react";
 
-import cloud from "./cloud.jpg";
-import cloudBolt from "./cloudBolt.jpg";
-import cloudMoon from "./cloudMoon.jpg";
-import cloudMoonRain from "./cloudMoonRain.jpg";
-import cloudRain from "./cloudRain.jpg";
-import cloudSun from "./cloudSun.jpg";
-import cloudSunRain from "./cloudSunRain.jpg";
-import moon from "./moon.jpg";
-import smog from "./smog.jpg";
-import snowflake from "./snowflake.jpg";
-import sun from "./sun.jpg";
+import cloud from "./images/cloud.jpg";
+import cloudBolt from "./images/cloudBolt.jpg";
+import cloudMoon from "./images/cloudMoon.jpg";
+import cloudMoonRain from "./images/cloudMoonRain.jpg";
+import cloudRain from "./images/cloudRain.jpg";
+import cloudSun from "./images/cloudSun.jpg";
+import cloudSunRain from "./images/cloudSunRain.jpg";
+import moon from "./images/moon.jpg";
+import smog from "./images/smog.jpg";
+import snowflake from "./images/snowflake.jpg";
+import sun from "./images/sun.jpg";
 
 export default function WeatherImg(props) {
   let imgMapping = {
