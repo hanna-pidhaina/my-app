@@ -52,7 +52,10 @@ export default function Weather(props) {
       description: response.data.weather[0].main,
       icon: response.data.weather[0].icon,
       date: new Date(response.data.dt * 1000),
+      longitude: response.data.coord.lon,
+      latitude: response.data.coord.lat,
     });
+    console.log (response.data);
   }
 
   if (weatherData.ready) {

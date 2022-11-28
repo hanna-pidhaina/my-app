@@ -46,11 +46,7 @@ export default function WeatherInfo(props) {
         </div>
       </div>
       <div className="ForecastSection row">
-        <ForecastDay />
-        <ForecastDay />
-        <ForecastDay />
-        <ForecastDay />
-        <ForecastDay />
+        <ForecastDay lon={props.data.longitude} lat={props.data.latitude} />
       </div>
     </div>
   );
