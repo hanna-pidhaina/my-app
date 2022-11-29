@@ -1,22 +1,14 @@
 import React from "react";
-import WeatherTemp from "./WeatherTemp";
 import WeatherIcon from "./WeatherIcon";
 import WeatherImg from "./WeatherImg";
 import Forecast from "./Forecast";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faWind,
-  faDroplet,
-} from "@fortawesome/free-solid-svg-icons";
-
-
-
+import { faWind, faDroplet } from "@fortawesome/free-solid-svg-icons";
 
 export default function WeatherInfo(props) {
   let wind = Math.round(props.data.wind);
   let humidity = props.data.humidity;
-  
 
   return (
     <div className="WeatherInfo">
@@ -28,7 +20,8 @@ export default function WeatherInfo(props) {
           <div className="col-md-3">
             <h3>{props.data.city}</h3>
             <h1>
-              <WeatherTemp celsius={props.data.temperature} />
+              <span className="TempValue">{props.data.temperature} </span>
+              <span className="units"> °C</span>
             </h1>
             <ul className="current-day-list">
               <li>{props.data.description}</li>
@@ -45,7 +38,7 @@ export default function WeatherInfo(props) {
           </div>
         </div>
       </div>
-        <Forecast lon={props.data.longitude} lat={props.data.latitude} />
+      <Forecast lon={props.data.longitude} lat={props.data.latitude} />
     </div>
   );
 }
