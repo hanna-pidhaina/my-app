@@ -2,7 +2,7 @@ import React from "react";
 import WeatherTemp from "./WeatherTemp";
 import WeatherIcon from "./WeatherIcon";
 import WeatherImg from "./WeatherImg";
-import ForecastDay from "./ForecastDay";
+import Forecast from "./Forecast";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -45,9 +45,7 @@ export default function WeatherInfo(props) {
           </div>
         </div>
       </div>
-      <div className="ForecastSection row">
-        <ForecastDay lon={props.data.longitude} lat={props.data.latitude} />
-      </div>
+        <Forecast lon={props.data.longitude} lat={props.data.latitude} />
     </div>
   );
 }

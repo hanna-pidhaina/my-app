@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCloud,
@@ -16,24 +16,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 
-
-export default function ForecastDay(props) {
-  let [loaded, setLoaded] = useState(false);
-  let [forecast, setForecast] = useState(null);
-  function handleResponse(response) {
-    setForecast(response.data.daily);
-    setLoaded(true);
-    console.log(response.data);
-  }
-
-  if (loaded) {
-    let maxTemp = Math.round(forecast[0].temp.max);
-    let minTemp = Math.round(forecast[0].temp.min);
-    let date = new Date(forecast[0].dt*1000);
+export default function ForecastDay (props) {
+    let maxTemp = Math.round(props.data[0].temp.max);
+    let minTemp = Math.round(props.data[0].temp.min);
+    let date = new Date(props.data[0].dt * 1000);
     let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     let day = date.getDay();
     let weekDay = days[day];
-    let icon = forecast[0].weather[0].icon;
+    let icon = props.data[0].weather[0].icon;
     let iconMapping = {
       "01d": faSun,
       "01n": faMoon,
@@ -56,33 +46,20 @@ export default function ForecastDay(props) {
     };
     let iconName = iconMapping[icon];
     let weatherIcon = <FontAwesomeIcon icon={iconName} />;
-
-     return (
-       <div className="col">
-         <ul className="forecast-list">
-           <li className="forecast-day">{weekDay}</li>
-           <li className="day-weather-icon">
-             {weatherIcon}
-           </li>
-           <li className="day">
-             <span>{maxTemp}</span>
-             <span>°C</span>
-           </li>
-           <li className="night">
-             <span>{minTemp}</span>
-             <span>°C</span>
-           </li>
-         </ul>
-       </div>
-     );
-    
-  } else {
-  let apiKey = "3c949ba49d38be2487ee278e0d2d4059";
-   let lat = props.lat;
-   let lon = props.lon;
-   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-   axios.get(apiUrl).then(handleResponse);
-   console.log(apiUrl);
-   return null;
-  }
+    return (
+      <div className="col">
+        <ul className="forecast-list">
+          <li className="forecast-day">{weekDay}</li>
+          <li className="day-weather-icon">{weatherIcon}</li>
+          <li className="day">
+            <span>{maxTemp}</span>
+            <span>°C</span>
+          </li>
+          <li className="night">
+            <span>{minTemp}</span>
+            <span>°C</span>
+          </li>
+        </ul>
+      </div>
+    );
 }
