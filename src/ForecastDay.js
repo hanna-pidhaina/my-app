@@ -17,13 +17,13 @@ import {
 
 
 export default function ForecastDay (props) {
-    let maxTemp = Math.round(props.data[0].temp.max);
-    let minTemp = Math.round(props.data[0].temp.min);
-    let date = new Date(props.data[0].dt * 1000);
+    let maxTemp = Math.round(props.data.temp.max);
+    let minTemp = Math.round(props.data.temp.min);
+    let date = new Date(props.data.dt * 1000);
     let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     let day = date.getDay();
     let weekDay = days[day];
-    let icon = props.data[0].weather[0].icon;
+    let icon = props.data.weather[0].icon;
     let iconMapping = {
       "01d": faSun,
       "01n": faMoon,
@@ -47,7 +47,7 @@ export default function ForecastDay (props) {
     let iconName = iconMapping[icon];
     let weatherIcon = <FontAwesomeIcon icon={iconName} />;
     return (
-      <div className="col">
+      <div className="ForecastDay">
         <ul className="forecast-list">
           <li className="forecast-day">{weekDay}</li>
           <li className="day-weather-icon">{weatherIcon}</li>

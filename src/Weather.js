@@ -55,7 +55,6 @@ export default function Weather(props) {
       longitude: response.data.coord.lon,
       latitude: response.data.coord.lat,
     });
-    console.log (response.data);
   }
 
   if (weatherData.ready) {
