@@ -4,11 +4,7 @@ body {
     rgba(0, 87, 183, 0.5) 31%,
     rgba(255, 221, 0, 0.5) 100%
   );
-  padding-top: 100px;
+  padding-top: 10px;
   background-attachment: fixed;
 }
 
-@media (max-width: 576px) {
-    body {
-        padding-top: 20px;
-    } }

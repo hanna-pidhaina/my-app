@@ -16,6 +16,9 @@
   border-radius: 4px;
   color: white;
 }
+.submit-button {
+  margin-left: 10px;
+  }
 .submit-button:hover,
 .current-location-button:hover {
   background: #ffdd00;
@@ -28,6 +31,7 @@
   padding: 10px 20px 50px;
   max-width: 700px;
   margin: auto;
+  border-radius: 5px;
 }
 .weather-icon {
   padding: 10px;
@@ -39,10 +43,12 @@
   padding: 0;
   font-style: italic;
   color: #343837;
+  
 }
 .weather-img {
   border-radius: 50%;
   box-shadow: 10px 5px 5px rgba(0, 87, 183, 0.3);
+  width: 80%;
 }
 .forecast-list {
   list-style: none;
@@ -58,7 +64,7 @@
   color: #343837;
 }
 .day {
-  color: #ffdd00;
+  color: white;
 }
 .night {
   color: #0057b7;
@@ -78,6 +84,15 @@
     }
     .CurrentWeatherSection {
   padding-bottom: 10px;
+    background: rgba(255, 255, 255, 0.1);
+  margin: 10px 70px;
+  border-radius: 5px;
+
+}
+.ForecastDay {
+  background: rgba(255, 255, 255, 0.1);
+  margin: 10px 70px;
+  border-radius: 5px;
 }
   }
   @media (max-width: 768px) {
