@@ -71,3 +71,16 @@
   text-align: center;
   padding: 5px;
 }
+
+@media (max-width: 576px) {
+    .weather-img {
+      display: none;
+    }
+    .CurrentWeatherSection {
+  padding-bottom: 10px;
+}
+  }
+  @media (max-width: 768px) {
+     .weather-img {
+width: 50%;    }
+}
